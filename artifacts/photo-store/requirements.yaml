@@ -1,0 +1,16 @@
+packages:
+  "framer-motion": "Elegant page transitions and interactive modal animations"
+  "react-dropzone": "Seamless drag-and-drop photo uploads for the admin panel"
+  "clsx": "Utility for conditionally joining class names"
+  "tailwind-merge": "Utility for merging Tailwind CSS classes safely"
+  "date-fns": "For formatting dates nicely in the UI"
+
+images:
+  - path: "artifacts/photo-store/public/images/hero-bg.png"
+    description: "Dark, elegant, moody abstract texture with subtle deep purple and charcoal light leaks, minimalist luxury aesthetic"
+    aspect_ratio: "16:9"
+
+notes:
+  - All API calls use the @workspace/api-client-react generated hooks
+  - Admin calls require the x-admin-secret header to be set via RequestInit options
+  - Dark mode luxury photography portfolio aesthetic
