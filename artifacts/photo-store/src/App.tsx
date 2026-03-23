@@ -20,18 +20,6 @@ const queryClient = new QueryClient({
   },
 });
 
-function AdminRoutes() {
-  return (
-    <AdminGate>
-      <Switch>
-        <Route path="/admin" component={AdminDashboard} />
-        <Route path="/admin/album/:id" component={AdminAlbumView} />
-        <Route component={NotFound} />
-      </Switch>
-    </AdminGate>
-  );
-}
-
 function Router() {
   return (
     <Layout>
@@ -39,7 +27,18 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/album/:slug" component={AlbumView} />
         <Route path="/success" component={SuccessPage} />
-        <Route path="/admin/*" component={AdminRoutes} />
+        <Route path="/admin/album/:id">
+          {(params) => (
+            <AdminGate>
+              <AdminAlbumView />
+            </AdminGate>
+          )}
+        </Route>
+        <Route path="/admin">
+          <AdminGate>
+            <AdminDashboard />
+          </AdminGate>
+        </Route>
         <Route component={NotFound} />
       </Switch>
     </Layout>
