@@ -116,7 +116,7 @@ function PhotoUploader({ albumId, adminPassword, onUploaded }: { albumId: string
 }
 
 export default function AdminPage() {
-  const [adminPassword, setAdminPassword] = useState('');
+  const [adminPassword, setAdminPassword] = useState(() => typeof window !== 'undefined' ? sessionStorage.getItem('admin_auth') || '' : '');
   const [authed, setAuthed] = useState(false);
   const [tab, setTab] = useState<Tab>('albums');
   const [albums, setAlbums] = useState<Album[]>([]);
